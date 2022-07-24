@@ -13,23 +13,26 @@ const WINDOW_HEIGHT = window.innerHeight;
 const BOX_WIDTH = 120;
 const BOX_HEIGHT = 120;
 
+// Variable to specify distance to move on key press
+let nudge = 5;
+
 function moveBox(event){
     console.log(x,y)
     switch (event.key) {
         case "ArrowDown":
-            y += 5;
+            y += nudge;
             myBox.style.top = y + "px";
             break;
         case "ArrowUp":
-            y -= 5;
+            y -= nudge;
             myBox.style.top = y + "px";
             break;
         case "ArrowRight":
-            x += 5;
+            x += nudge;
             myBox.style.left = x + "px";
             break;
         case "ArrowLeft":
-            x -= 5;
+            x -= nudge;
             myBox.style.left = x + "px";
             break;
         default:
