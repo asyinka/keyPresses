@@ -16,38 +16,44 @@ const BOX_HEIGHT = 120;
 // Variable to specify distance to move on key press
 let nudge = 5;
 
-function moveBox(event){
-    console.log(x,y)
-    switch (event.key) {
-        case "ArrowDown":
-            y += nudge;
-            myBox.style.top = y + "px";
-            break;
-        case "ArrowUp":
-            y -= nudge;
-            myBox.style.top = y + "px";
-            break;
-        case "ArrowRight":
-            x += nudge;
-            myBox.style.left = x + "px";
-            break;
-        case "ArrowLeft":
-            x -= nudge;
-            myBox.style.left = x + "px";
-            break;
-        default:
-            break;
-    }
+function moveBox(event) {
+  switch (event.key) {
+    case "ArrowDown":
+      move("y", nudge);
+      break;
+    case "ArrowUp":
+      move("y", -nudge);
+      break;
+    case "ArrowRight":
+      move("x", nudge);
+      break;
+    case "ArrowLeft":
+      move("x", -nudge);
+      break;
+    default:
+      break;
+  }
 }
 
+function move(axis, distance) {
+  if (axis !== "y" && axis !== "x") throw Error("Axis can only be x or y.");
+
+  if (axis === 'x') {
+    x += distance;
+    myBox.style.left = x + "px";
+  } else {
+    y += distance;
+    myBox.style.top = y + "px";
+  }
+}
 
 window.addEventListener("keydown", showKey);
 function showKey(storeKey) {
-    if (storeKey.key == "ArrowDown") {
-        console.log(`${storeKey.key} is pressed`);
-    } else if (storeKey.key == storeKey.key) {
-        console.log(storeKey.key)
-    }
+  if (storeKey.key == "ArrowDown") {
+    console.log(`${storeKey.key} is pressed`);
+  } else if (storeKey.key == storeKey.key) {
+    console.log(storeKey.key);
+  }
 }
 
 // window.addEventListener("keypress", showKey => console.log(showKey.key));
