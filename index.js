@@ -3,7 +3,18 @@ window.addEventListener("keydown", moveBox);
 let x = 0;
 let y = 0;
 
+// Its good to know the current width of the screen
+// So that we'd know the boundary we want
+// to apply to our movement.
+const WINDOW_WIDTH = window.innerWidth;
+const WINDOW_HEIGHT = window.innerHeight;
+
+// I also need to know the size of the box
+const BOX_WIDTH = 120;
+const BOX_HEIGHT = 120;
+
 function moveBox(event){
+    console.log(x,y)
     switch (event.key) {
         case "ArrowDown":
             y += 5;
