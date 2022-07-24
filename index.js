@@ -53,6 +53,15 @@ function move(axis, distance) {
     if (newX < 0) return;
     // Check 2: x=300 (420 - 120) (we don't want x to be greater that 300(according to our assumptions))
     if (newX > WINDOW_WIDTH - BOX_WIDTH) return;
+  } else {
+    let newY = y + distance; //Trying to compute the new y without modifying the normal y yet
+    // You can combine the checks, but let me separate it for your understanding
+    // Check 1: y=0 (we don't want y to be less that 0)
+    if (newY < 0) return;
+    // If height of window is 1000
+    // Check 2: y=880 (1000 - 120) (we don't want y to be greater that 880 (according to our assumptions))
+    // Can you see the importants of creating those constants. I won't litter my code with values that no one would understand.
+    if (newY > WINDOW_HEIGHT - BOX_HEIGHT) return;
   }
 
   if (axis === "x") {
